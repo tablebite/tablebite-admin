@@ -1,1 +1,0 @@
-# tablebite-admin

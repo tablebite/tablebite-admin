@@ -9,10 +9,20 @@ export default defineConfig({
     svgr({
       svgrOptions: {
         icon: true,
-        // This will transform your SVG to a React component
         exportType: "named",
         namedExport: "ReactComponent",
       },
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'], // Example: separate vendor code into a separate chunk
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000, // Increase chunk size warning limit to avoid excessive warnings
+  },
 });
+
